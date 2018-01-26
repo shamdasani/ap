@@ -1,34 +1,41 @@
-var mc;
-var mcTotal;
+var mc = document.getElementById('mc')
+var mcTotal = document.getElementById('mcTotal')
 
-var frq; 
-var frqTotal; 
+var frq = document.getElementById('frq')
+var frqTotal = document.getElementById('frqTotal')
 
-var mcGrade;
-var frqGrade;
-var total; 
-var ap;
+var mcGrade = document.getElementById('mcGrade')
+var frqGrade = document.getElementById('frqGrade')
+var total = document.getElementById('total')
+var ap = document.getElementById('ap')
 
-// add colors 
+var button = document.getElementById('button')
+
+button.addEventListener('click', function() {
+  calculateGrade(mc, mcTotal, frq, frqTotal)
+  frq.innerHTML = ''
+  frqTotal.innerHTML = ''
+  mc.innerHTML = ''
+  mcTotal.innerHTML = ''
+})
 
 function calculateGrade(mc, mcTotal, frq, frqTotal) {
-  
-mcGrade = (mc / mcTotal)*50;
-frqGrade = (frq / frqTotal)*50;
-total = mcGrade + frqGrade; 
+  mcGrade.innerHTML = mc.value / mcTotal.value * 50
+  frqGrade.innerHTML = frq.value / frqTotal.value * 50
+  total.innerHTML = Number(mcGrade.innerHTML) + Number(frqGrade.innerHTML)
+  total = Number(total.innerHTML)
 
-if (total < 28) {
-  ap = 1;
-} else if (total < 47) {
-  ap = 2;
+  if (total < 28) {
+    ap.innerHTML = '1'
+  } else if (total < 47) {
+    ap.innerHTML = '2'
   } else if (total < 67) {
-  ap = 3;
+    ap.innerHTML = '3'
   } else if (total < 85) {
-  ap = 4; 
+    ap.innerHTML = '4'
   } else {
-  ap = 5;
+    ap.innerHTML = '5'
+  }
 }
 
-console.log("MC Grade: " + mcGrade + '\n' + "Frq Grade: " + frqGrade + '\n' + "Total Score: " + total + '\n' + "AP Score: " + ap)
-
-}
+// add colors

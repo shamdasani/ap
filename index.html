@@ -1,0 +1,42 @@
+<head>
+<meta charset="utf-8">
+<title>AP Grade Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css" />
+    <link rel="stylesheet" href="style.css" />
+
+</head>
+
+<body>
+
+  <section class="hero is-info is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        AP Chemistry Grade Calculator
+      </h1>
+    </div>
+  </div>
+</section>
+<br>
+<div class="container">
+
+<input class="input is-info" placeholder="Multiple Choice Correct" id="mc"></input>
+<input class="input is-info" placeholder="Total Multiple Choice" id="mcTotal"></input>
+<input class="input is-info" placeholder="FRQ Correct" id="frq"></input>
+<input class="input is-info" placeholder="Total FRQ" id="frqTotal"></input>
+
+<button class="button is-info" id="button">Calculate!</button>
+
+<div class="scores" id="scores">
+  <div>Multiple Choice: <b><span id="mcGrade"></span></b></div>
+  <div>FRQ: <b><span id="frqGrade"></span></b> </div>
+  <div>Total: <b><span id="total"></span></b> </div>
+  <div>AP Score: <b><span id="ap"></span></b> </div>
+</div>
+
+</div>
+
+<script src="calc.js"></script>
+
+</body>
