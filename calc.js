@@ -12,26 +12,28 @@ var ap = document.getElementById('ap')
 var button = document.getElementById('button')
 
 button.addEventListener('click', function() {
-  calculateGrade(mc, mcTotal, frq, frqTotal)
-  frq.innerHTML = ''
-  frqTotal.innerHTML = ''
-  mc.innerHTML = ''
-  mcTotal.innerHTML = ''
+  math(calculateAPGrade)
 })
 
-function calculateGrade(mc, mcTotal, frq, frqTotal) {
-  mcGrade.innerHTML = mc.value / mcTotal.value * 50
-  frqGrade.innerHTML = frq.value / frqTotal.value * 50
-  total.innerHTML = Number(mcGrade.innerHTML) + Number(frqGrade.innerHTML)
-  total = Number(total.innerHTML)
+function math(callback) {
+  var mcCalc = mc.value / mcTotal.value * 50
+  var frqCalc = frq.value / frqTotal.value * 50
+  totalScore = mcCalc + frqCalc
+  callback(totalScore)
 
-  if (total < 28) {
+  mcGrade.innerHTML = mcCalc
+  frqGrade.innerHTML = frqCalc
+  total.innerHTML = totalScore
+}
+
+function calculateAPGrade(totalScore) {
+  if (totalScore < 28) {
     ap.innerHTML = '1'
-  } else if (total < 47) {
+  } else if (totalScore < 47) {
     ap.innerHTML = '2'
-  } else if (total < 67) {
+  } else if (totalScore < 67) {
     ap.innerHTML = '3'
-  } else if (total < 85) {
+  } else if (totalScore < 85) {
     ap.innerHTML = '4'
   } else {
     ap.innerHTML = '5'
