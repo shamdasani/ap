@@ -19,6 +19,7 @@ function math(callback) {
   var mcCalc = mc.value / mcTotal.value * 50
   var frqCalc = frq.value / frqTotal.value * 50
   totalScore = mcCalc + frqCalc
+  totalScore = Math.round(totalScore)
   callback(totalScore)
 
   mcGrade.innerHTML = mcCalc
